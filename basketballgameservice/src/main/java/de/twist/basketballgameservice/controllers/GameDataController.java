@@ -33,5 +33,16 @@ public class GameDataController {
 
 		return teamDataLists;
 	}
+	
+	@GetMapping(value="/data-neumarkt")
+	public HashMap<String, List<CalendarGameEvent>> getFileNeumarkt() {
+		System.out.println("\n\ngetFileTest() - controller called!");
+		List<CalendarGameEvent> datalistH1 = new IcsFileDataService(Filepath.H1_FiLENAME_BRO.value).getFileData();
+
+		HashMap<String, List<CalendarGameEvent>> teamDataLists = new HashMap<>();
+		teamDataLists.put("h1", datalistH1);
+
+		return teamDataLists;
+	}
 
 }
